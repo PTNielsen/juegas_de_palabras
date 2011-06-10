@@ -1,6 +1,32 @@
 Feature: Manage mad_libs
 
-  TODO some documentation!
+  Mad Libs are fun word games. You've probably played them at some point,
+  if not, check out Wikipedia for more general information: 
+  http://en.wikipedia.org/wiki/Mad_Libs
+
+  We'd like you to create an application that takes in a mad-lib 
+  definition, parses it, and then allows users to fill it in. The 
+  required syntax for a mad-lib is fairly simple, parts of speech
+  that should be requested are surrounded by curly braces ('{' and 
+  '}').
+
+  You should write sufficient code to pass these cucumber tests.
+  Running the tests is as simple as running 'rake cucumber'.
+
+  Bonus points will be awarded for:
+    * Finding and using the helper tools we've included in this 
+      application stub.
+    * Deploying the resultant app on heroku or (for more points) 
+      Amazon's EC2.
+    * Making it look pretty
+    * Making use of ajax (you may need to annotate these Scenarios with 
+      the @javascript tag to make the features pass)
+    * Anything else awesome above and beyond passing the tests
+
+  Feel free to ask questions, although answers may not be provided ;)
+  Just email josh@optoro.com
+
+  Good luck!
 
   Scenario: Create a madlib
     Given I am on the home page
@@ -30,7 +56,16 @@ Feature: Manage mad_libs
     Given I am on the home page
     When I fill in the text:
       """
-      Programming is a craft. At its simplest, it comes down to getting a {noun} to do what you want it to do (or what your {noun} wants it to do). As a {job}, you are part listener, part advisor, part interpreter, and part {job}. You try to {verb} {adjective} requirements and find a way of expressing them so that a mere {noun} can do them justice. You try to {verb} your work so that others can {verb} it, and you try to engineer your {noun} so that others can {verb} on it. What's more, you try to do all this against the relentless {verb, ending in -ing} of the {noun}. You work {adjective} miracles every day.
+      Programming is a craft. At its simplest, it comes down to getting 
+      a {noun} to do what you want it to do (or what your {noun} wants 
+      it to do). As a {job}, you are part listener, part advisor, part 
+      interpreter, and part {job}. You try to {verb} {adjective} 
+      requirements and find a way of expressing them so that a mere 
+      {noun} can do them justice. You try to {verb} your work so that 
+      others can {verb} it, and you try to engineer your {noun} so that
+      others can {verb} on it. What's more, you try to do all this 
+      against the relentless {verb, ending in -ing} of the {noun}. You 
+      work {adjective} miracles every day.
       """
     And I press "Create"
     Then I should see "New Mad Lib created"
@@ -70,7 +105,16 @@ Feature: Manage mad_libs
     Then I should see "Your solution has been created"
     And I should see:
       """
-      Programming is a craft. At its simplest, it comes down to getting a keyboard cat to do what you want it to do (or what your dog wants it to do). As a airline pilot, you are part listener, part advisor, part interpreter, and part clown. You try to sitshiny requirements and find a way of expressing them so that a mere post-it can do them justice. You try to jump your work so that others can sing it, and you try to engineer your coke so that others can dance on it. What's more, you try to do all this against the relentless dancing of the cup. You work bright miracles every day.
+      Programming is a craft. At its simplest, it comes down to getting 
+      a keyboard cat to do what you want it to do (or what your dog 
+      wants it to do). As a airline pilot, you are part listener, part 
+      advisor, part interpreter, and part clown. You try to sitshiny 
+      requirements and find a way of expressing them so that a mere 
+      post-it can do them justice. You try to jump your work so that 
+      others can sing it, and you try to engineer your coke so that 
+      others can dance on it. What's more, you try to do all this 
+      against the relentless dancing of the cup. You work bright 
+      miracles every day.
       """
 
   Scenario: reporting
