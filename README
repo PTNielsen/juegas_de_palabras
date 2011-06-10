@@ -1,1 +1,6 @@
-Please see the problem description and summary in features/manage_mad_libs.feature
+Please see the problem description and summary in 
+features/manage_mad_libs.feature
+
+To get started with this rails app, you'll want to ensure you have ruby 
+1.8 and the latest rubygems installed, then run `gem install bundler` 
+and finally `bundle install`.
