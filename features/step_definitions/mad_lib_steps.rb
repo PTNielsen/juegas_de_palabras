@@ -1,3 +1,24 @@
+When /^I create a madlib with the text:$/ do |string|
+  @madlib = MadLib.create(:text => string)
+end
+
+Then /^it should have the following fields:$/ do |table|
+  table.hashes.each do |field|
+    @madlib.has_field?(field[:label]).should be_true
+  end
+end
+
+When /^I assign the fields these values:$/ do |table|
+  @solution = @madlib.solutions.create
+  table.hashes.each do |field|
+    @solution.fill_field(field[:label], :with => field[:value])
+  end
+end
+
+Then /^the madlib should resolve to:$/ do |string|
+  @solution.resolve.should == string
+end
+
 When /^I fill in the text:$/ do |string|
   fill_in("mad_lib_text", :with => string)
 end
