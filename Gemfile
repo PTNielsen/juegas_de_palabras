@@ -1,17 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.8'
+gem 'rails'
 
-gem 'mysql2', '~> 0.2.6'
-
-gem 'ruby-debug'
+gem 'sqlite3'
 
 gem 'sass'
 gem 'haml'
 gem 'jquery-rails'
 
+gem 'coffee-rails'
+gem 'pjax_rails'
+
 group :development do
-  gem 'mongrel'
+  gem 'thin'
   gem "annotate"
 end
 
@@ -33,4 +34,10 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
+  platform :mri_18 do
+    gem 'ruby-debug'
+  end
+  platform :mri_19 do
+    gem 'ruby-debug19'
+  end
 end
