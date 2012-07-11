@@ -12,7 +12,7 @@ gem 'coffee-rails'
 gem 'pjax_rails'
 
 group :development do
-  gem 'thin'
+  gem 'pry'
   gem "annotate"
 end
 

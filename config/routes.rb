@@ -1,7 +1,10 @@
 Madlibs::Application.routes.draw do
-  get 'madlibs/new'
-  post 'madlibs/create'
-  # The priority is based upon order of creation:
+  match '/reports', :to => 'reports#usage'
+
+  resources :mad_libs do
+    resources :solutions, :controller => 'mad_lib_solutions', :as => 'solutions'
+  end
+  root :to => 'mad_libs#new'
   # first created -> highest priority.
 
   # Sample of regular route:
