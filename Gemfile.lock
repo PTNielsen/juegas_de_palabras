@@ -90,6 +90,11 @@ GEM
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     json (1.7.3)
+    konacha (1.4.1)
+      actionpack (~> 3.1)
+      capybara
+      railties (~> 3.1)
+      sprockets
     launchy (2.1.0)
       addressable (~> 2.2.6)
     libnotify (0.7.4)
@@ -221,6 +226,7 @@ DEPENDENCIES
   haml
   jqcloud-rails
   jquery-rails
+  konacha
   launchy
   libnotify
   pry

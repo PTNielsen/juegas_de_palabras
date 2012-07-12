@@ -46,4 +46,5 @@ group :development, :test do
   platform :mri_19 do
     gem 'ruby-debug19'
   end
+  gem 'konacha'
 end
