@@ -46,5 +46,4 @@ group :development, :test do
   platform :mri_19 do
     gem 'ruby-debug19'
   end
-  gem 'mocha_rails' # coffeescript assertion testing
 end
