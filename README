@@ -1,6 +1,25 @@
-Please see the problem description and summary in 
-features/manage_mad_libs.feature
+Description:
+word_games is a rails application that allows a user to enter and solve mad libs. The interface is simple, if crude, and guides the user through both creation and solution actions. In addition there is a reporting section (at /reports) that provides users with summary totals about frequency of parts-of-speech and how often specific words (or phrases) are used as fill-ins in the solutions to mad libs.
 
-To get started with this rails app, you'll want to ensure you have ruby 
-1.8 and the latest rubygems installed, then run `gem install bundler` 
-and finally `bundle install`.
+Features:
+Mad Libs
+
+Issues:
+Looks ugly
+
+Planned Improvements:
+0) make prettier
+1) greater integration of twitter bootstrap into the app's user interface
+2) render the report sections as tag clouds (they are so ideally suited to that particular visual metaphor) using jQCloud (jqcloud-rails)
+3) assertion tests to accompany any coffeescript functionality
+
+Possible Future Improvements (read: Pipe Dreams)
+1) side-by-side as-you-solve rendering of the completed mad lib
+2) an optional solution mode (params[:with_google_images] url variable) in which the solver, instead of replacing each placeholder with the user-provided text, replaces it with the first image Google returns in response to the user-provided text
+>=3) look at using MongoDB as the data backend (the data model here is inherently hierarchical, so the idea is worth exploring)
+
+Potentially Interesting Design/Architecture Decisions:
+
+MadLibSolutions: Having a separate solution class not only makes serialization of MadLib easier, but makes ActiveRecord handle multiple users (in some hypothetical future release) creating different solutions to the same MadLib instance.
+
+Using Yaml for MadLibSolution.values: Using .to_yaml and YAML::load allowed storage of MadLib.fieldsd and their replacement strings (data that quacks like a Hash, to be (almost) stored as a hash.

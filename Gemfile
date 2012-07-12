@@ -4,12 +4,18 @@ gem 'rails'
 
 gem 'sqlite3'
 
-gem 'sass'
 gem 'haml'
+gem 'bootstrap-sass'
+
 gem 'jquery-rails'
 
-gem 'coffee-rails'
-gem 'pjax_rails'
+gem 'jqcloud-rails'
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
 
 group :development do
   gem 'pry'
@@ -40,4 +46,5 @@ group :development, :test do
   platform :mri_19 do
     gem 'ruby-debug19'
   end
+  gem 'mocha_rails' # coffeescript assertion testing
 end
