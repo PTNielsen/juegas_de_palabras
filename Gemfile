@@ -8,7 +8,7 @@ gem 'haml'
 gem 'bootstrap-sass'
 
 gem 'jquery-rails'
-
+gem 'rack-pjax'
 gem 'jqcloud-rails'
 
 group :assets do
