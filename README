@@ -23,3 +23,10 @@ Potentially Interesting Design/Architecture Decisions:
 MadLibSolutions: Having a separate solution class not only makes serialization of MadLib easier, but makes ActiveRecord handle multiple users (in some hypothetical future release) creating different solutions to the same MadLib instance.
 
 Using Yaml for MadLibSolution.values: Using .to_yaml and YAML::load allowed storage of MadLib.fieldsd and their replacement strings (data that quacks like a Hash, to be (almost) stored as a hash.
+
+Instructions:
+1) git clone into fresh directory
+2) make a fresh rvm in that directory (Ruby 1.9.2 or higher)
+3) bundle install
+4) rake db:create:all
+5) rake db:migrate
