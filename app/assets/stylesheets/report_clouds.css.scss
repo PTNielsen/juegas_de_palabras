@@ -1,0 +1,30 @@
+body {
+  background: #eee;
+  font-family: Helvetica, Arial, sans-serif;
+}
+#jqcloud {
+  margin: 30px auto;
+  width: 600px;
+  height: 371px;
+  border: none;
+  span.w10, span.w9, span.w8, span.w7 {
+    text-shadow: 0px 1px 1px #ccc;
+  }
+  span.w3, span.w2, span.w1 {
+    text-shadow: 0px 1px 1px #fff;
+  }
+}
+#footer {
+  font-size: 13px;
+  color: #aaa;
+  text-align: center;
+  width: 600px;
+  margin: 30px auto;
+  padding: 0.5em;
+  text-shadow: 0px 1px 1px #fff;
+  border-top: 1px dotted #ddd;
+  a {
+    color: #0af;
+    text-decoration: none;
+  }
+}

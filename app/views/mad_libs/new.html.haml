@@ -1,0 +1,12 @@
+= form_tag({:controller => 'mad_libs', :action => :create}, :class => 'form-horizontal') do
+  %fieldset
+    .control-group
+      %label.control-label{:for => 'mad_lib_text'}= 'Mad Lib Template'
+      .controls
+        %textarea.input-xlarge{:name => 'mad_lib_text', :id => 'mad_lib_text', :rows => 7}
+        .demo
+          %span.help-block!= "A madlib template of <code>The quick brown fox jumps over the lazy dog.</code>"
+          %span.help-block
+            != "could be<code>The {adjective} {color} {animal} {verb, ending in -s} over the lazy {noun}.</code>"
+    .form-actions
+      %button.btn.btn-success{:type => 'submit'}= 'Create'

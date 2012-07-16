@@ -1,0 +1,32 @@
+class MadLibSolution < ActiveRecord::Base
+  belongs_to :mad_lib
+  attr_accessible :text
+  validates_presence_of :text
+
+  after_initialize do |solution|
+    solution.text ||= solution.mad_lib.template
+  end
+
+  attr_reader :filled_slots
+
+  def fill_field(label, value)
+    label = label.to_s
+    unless mad_lib.has_field? label
+      raise StandardError # replace with NoLabelError or something
+    end
+    unless self.text.include? label
+      raise StandardError # replace with FieldAlreadyFilledIn or something
+    end
+
+    if value.is_a?(Hash) && value.key?(:with)
+      value = value[:with].to_s
+    end
+
+    (@filled_slots ||= {})[label] = value
+    self.text = self.text.sub label, value
+  end
+
+  def resolve
+    self.text
+  end
+end

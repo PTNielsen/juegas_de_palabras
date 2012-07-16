@@ -1,0 +1,13 @@
+.report-section
+  .report-name.row-fluid
+    %h3.span12= "Parts of Speech Totals"
+  .report-findings
+    - @parts_of_speech_counts.each do |part_of_speech, count|
+      %p{:'data-cloud-text' => part_of_speech, :'data-cloud-weight' => count}
+        = "#{part_of_speech}: #{count.to_s}"
+.report-section
+  %h3= "Duplicate Solution Totals"
+  .report-findings
+    - @solution_word_counts.each do |word, count|
+      %p{:'data-cloud-text' => word, :'data-cloud-weight' => count}
+        = "#{word}: #{count.to_s}"

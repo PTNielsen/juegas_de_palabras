@@ -1,0 +1,35 @@
+class MadLib < ActiveRecord::Base
+  validates_presence_of :text
+  has_many :solutions, :class_name => "MadLibSolution"
+
+  after_initialize do |mad_lib|
+    mad_lib.build_template
+  end
+
+  attr_reader :field_labels, :template, :fields
+
+  def has_field?(field_label)
+    @field_labels.include? field_label
+  end
+
+  def build_template
+    text_copy = text # Make a copy so the actual text isn't changed
+    while (match = text_copy.match(pattern)).present?
+      (@fields ||= []) << match[:field]
+      count = @fields.select { |field| field == match[:field] }.count
+      field_label = "#{match[:field].capitalize} (#{count.to_s}):"
+      (@template ||= '') << (match.pre_match + field_label)
+      (@field_labels ||= []) << field_label
+      text_copy = match.post_match
+    end
+    (@template ||= '') << text_copy
+  end
+
+  def pattern
+    self.class.pattern
+  end
+
+  def self.pattern
+    /\{(?<field>[^{]*)\}/
+  end
+end

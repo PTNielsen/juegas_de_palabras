@@ -1,0 +1,9 @@
+= form_tag({:controller => 'mad_lib_solutions', :action => :create}, :class => 'form-horizontal') do
+  %fieldset
+    - @mad_lib.field_labels.each do |field_label|
+      .control-group
+        = label_tag field_label.to_sym, field_label, :class => 'control-label'
+        .controls
+          = text_field_tag field_label.to_sym
+    .form_actions
+      %button.btn.btn-success{:type => 'submit'}= 'Fill In'

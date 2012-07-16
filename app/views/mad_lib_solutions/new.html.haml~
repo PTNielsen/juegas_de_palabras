@@ -1,0 +1,6 @@
+= form_tag :controller => 'mad_lib_solutions', :action => :create do
+  - @mad_lib.field_labels.each do |field_label|
+    %div.field{:id => field_label}
+      = label_tag field_label.to_sym, field_label
+      = text_field_tag field_label.to_sym
+  = submit_tag 'Fill In'

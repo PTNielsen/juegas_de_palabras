@@ -1,0 +1,14 @@
+$ = jQuery
+
+# Enable pjax for all links with class 'pjax'
+$('.pjax').live 'click', (event) ->
+  if event.which > 1 || event.metaKey || event.ctrlKey
+    return
+  else if $.support.pjax
+    event.preventDefault()
+    $.pjax
+      container: $(this).data('pjax-container') || '[data-pjax-container]'
+      url: $(this).data('href') || $(this).attr('href')
+      timeout: 2000
+  else if $(this).data('href') # not a native #href, need some help
+    window.location = $(this).data('href')

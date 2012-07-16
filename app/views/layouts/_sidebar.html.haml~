@@ -1,0 +1,5 @@
+%ul.nav.nav-list
+  %li.active
+    %a.pjax{:href => new_mad_lib_path}= "Create a Mad Lib"
+  %li
+    %a.pjax{:href => reports_path}= "Read a Report"
